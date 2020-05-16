@@ -21,3 +21,8 @@ setTimeout(() => {
 
   console.log('John');
 }, 10);
+
+// queue task []
+// micro queue [Robert,James,Michael]
+// tick queue []
+
