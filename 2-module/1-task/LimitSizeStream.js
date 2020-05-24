@@ -17,6 +17,5 @@ class LimitSizeStream extends stream.Transform {
     }
   }
 }
-
 module.exports = LimitSizeStream;
 

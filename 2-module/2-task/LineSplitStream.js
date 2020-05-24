@@ -6,7 +6,6 @@ class LineSplitStream extends stream.Transform {
     super(options);
      this.lastLine = '';
   }
-
   _transform(chunk, encoding, callback) {
     let data = chunk.toString();
     if (this.lastLine) {
