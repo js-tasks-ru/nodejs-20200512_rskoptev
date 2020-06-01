@@ -37,7 +37,7 @@ server.on('request', (req, res) => {
           } else {
             res.statusCode = 201;
             res.end('File created');
-            console.log(req);
+            // console.log(req);
           }})
         .on('error', error => {
           if (error.code === 'ENOENT') {
