@@ -25,18 +25,19 @@ server.on('request', (req, res) => {
         .on('error', err => {
           if (err.code === 'LIMIT_EXCEEDED') {
             res.statusCode = 413;
-            fs.unlink(filepath, () => {});
+            fs.unlinkSync(filepath);
             res.end('Limit has been exceeded.');
           }
         })
         .pipe(writeFile)
-        .on('close', () => {
+        .on('close', () => { //i tried using event:'aborted'
           if (req.aborted) {
             writeFile.end();
-            fs.unlink(filepath);
+            fs.unlinkSync(filepath);
           } else {
             res.statusCode = 201;
             res.end('File created');
+            console.log(req);
           }})
         .on('error', error => {
           if (error.code === 'ENOENT') {
