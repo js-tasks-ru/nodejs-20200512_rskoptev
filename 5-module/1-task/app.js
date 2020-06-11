@@ -49,6 +49,7 @@ router.post('/publish', async (ctx, next) => {
 
   ctx.body = nMessage;
   return next();
+
 });
 
 app.use(router.routes());
